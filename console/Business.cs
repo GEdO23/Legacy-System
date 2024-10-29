@@ -4,6 +4,8 @@ using System.IO;
 
 namespace LegacySystem
 {
+    #region Client Related Classes
+
     class cliente
     {
         public int Id;
@@ -25,6 +27,57 @@ namespace LegacySystem
             }
         }
     }
+
+    class SistemaCliente
+    {
+        public List<cliente> clientes = new List<cliente>();
+
+        public void ExibirTodosOsClientes()
+        {
+            foreach (cliente c in clientes)
+            {
+                Console.WriteLine("ID: " + c.Id + " Nome: " + c.nome + " Email: " + c.EMAIL);
+            }
+        }
+
+        public void AddCliente(int id, string nome, string email)
+        {
+            clientes.Add(new cliente(id, nome, email));
+        }
+
+        public void AtualizarNomeCliente(int id, string nome)
+        {
+            cliente c = clientes.Find(x => x.Id == id);
+            if (c != null)
+            {
+                c.mudarNome(nome);
+            }
+        }
+
+        public void removerCliente(int id)
+        {
+            cliente c = clientes.Find(x => x.Id == id);
+            if (c != null)
+            {
+                clientes.Remove(c);
+            }
+        }
+    }
+
+    class Relatorio
+    {
+        public void GerarRelatorioCliente(List<cliente> clientes)
+        {
+            foreach (var c in clientes)
+            {
+                Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Transaction Related Classes
 
     class Transacoes
     {
@@ -60,50 +113,5 @@ namespace LegacySystem
         }
     }
 
-    class SistemaCliente
-    {
-        public List<cliente> clientes = new List<cliente>();
-
-        public void AddCliente(int id, string nome, string email)
-        {
-            clientes.Add(new cliente(id, nome, email));
-        }
-
-        public void removerCliente(int id)
-        {
-            cliente c = clientes.Find(x => x.Id == id);
-            if (c != null)
-            {
-                clientes.Remove(c);
-            }
-        }
-
-        public void ExibirTodosOsClientes()
-        {
-            foreach (cliente c in clientes)
-            {
-                Console.WriteLine("ID: " + c.Id + " Nome: " + c.nome + " Email: " + c.EMAIL);
-            }
-        }
-
-        public void AtualizarNomeCliente(int id, string nome)
-        {
-            cliente c = clientes.Find(x => x.Id == id);
-            if (c != null)
-            {
-                c.mudarNome(nome);
-            }
-        }
-    }
-
-    class Relatorio
-    {
-        public void GerarRelatorioCliente(List<cliente> clientes)
-        {
-            foreach (var c in clientes)
-            {
-                Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
-            }
-        }
-    }
+    #endregion
 }
