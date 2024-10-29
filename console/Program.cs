@@ -8,14 +8,14 @@ namespace LegacySystem
     {
         static void Main(string[] args)
         {
-            ClientSystem clientSystem = new ClientSystem();
+            ClientSystem clientSystem = new();
             clientSystem.AddClient(1, "Joao", "joao@email.com");
             clientSystem.AddClient(2, "Maria", "maria@email.com");
 
-            TransactionSystem transactionSystem = new TransactionSystem();
-            transactionSystem.AddTransaction(1, 100.50m, "Compra de Produto");
-            transactionSystem.AddTransaction(2, 200.00m, "Compra de Serviço");
-            transactionSystem.AddTransaction(3, 300.75m, "Compra de Software");
+            TransactionSystem transactionSystem = new();
+            transactionSystem.AddTransaction(1, 100.50m, "Product Purchase");
+            transactionSystem.AddTransaction(2, 200.00m, "Service Purchase");
+            transactionSystem.AddTransaction(3, 300.75m, "Software Purchase");
 
             clientSystem.DisplayAllClients();
             transactionSystem.DisplayAllTransactions();
@@ -25,21 +25,21 @@ namespace LegacySystem
 
             clientSystem.UpdateClientName(2, "Maria Silva");
 
-            string nomeEmpresa = "Empresa Teste";
-            string descricaoTransacao = "Compra de Insumo";
+            string companyName = "Company Test";
+            string transactionDescription = "Purchase of Supplies";
 
-            Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
+            Console.WriteLine("Company Name: " + companyName + " Description: " + transactionDescription);
             
-            Report report = new Report();
+            Report report = new();
             report.GenerateClientReport(clientSystem.ClientList);
 
-            int soma = 0;
+            int totalSum = 0;
             for (int i = 0; i < 10; i++)
             {
-                soma += i;
+                totalSum += i;
             }
 
-            Console.WriteLine("Soma total: " + soma);
+            Console.WriteLine("Total Sum: " + totalSum);
         }
     }
 }
