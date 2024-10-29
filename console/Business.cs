@@ -64,17 +64,6 @@ namespace LegacySystem
         }
     }
 
-    class Relatorio
-    {
-        public void GerarRelatorioCliente(List<cliente> clientes)
-        {
-            foreach (var c in clientes)
-            {
-                Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
-            }
-        }
-    }
-
     #endregion
 
     #region Transaction Related Classes
@@ -109,6 +98,21 @@ namespace LegacySystem
             {
                 Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
                                   transacao.descricao);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Report Related Classes
+
+    class Relatorio
+    {
+        public void GerarRelatorioCliente(List<cliente> clientes)
+        {
+            foreach (var c in clientes)
+            {
+                Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
             }
         }
     }
