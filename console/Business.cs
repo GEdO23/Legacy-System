@@ -45,21 +45,21 @@ namespace LegacySystem
             ClientList.Add(new Client(id, name, email));
         }
 
-        public void UpdateClientName(int id, string nome)
+        public void UpdateClientName(int id, string newName)
         {
-            Client client = ClientList.Find(c => c.Id == id);
-            if (client != null)
+            Client foundClient = ClientList.Find(c => c.Id == id);
+            if (foundClient != null)
             {
-                client.SetName(nome);
+                foundClient.SetName(newName);
             }
         }
 
         public void RemoveClient(int id)
         {
-            Client client = ClientList.Find(c => c.Id == id);
-            if (client != null)
+            Client foundClient = ClientList.Find(c => c.Id == id);
+            if (foundClient != null)
             {
-                ClientList.Remove(client);
+                ClientList.Remove(foundClient);
             }
         }
     }
@@ -108,9 +108,9 @@ namespace LegacySystem
 
     class Report
     {
-        public void GenerateClientReport(List<Client> clientes)
+        public void GenerateClientReport(List<Client> clientList)
         {
-            foreach (var client in clientes)
+            foreach (var client in clientList)
             {
                 Console.WriteLine("Client: " + client.Name + " | Email: " + client.Email);
             }
