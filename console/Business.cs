@@ -26,25 +26,6 @@ namespace LegacySystem
                 nome = n;
             }
         }
-
-        public void AtualizarEmail(string e)
-        {
-            if (e != null && e.Contains("@"))
-            {
-                EMAIL = e;
-            }
-        }
-
-        public void ExibirDados()
-        {
-            Console.WriteLine("Id: " + Id + " Nome: " + nome + " Email: " + EMAIL + " Cadastro: " + cadastro);
-        }
-
-        public void ExibirDadosOut()
-        {
-            Console.WriteLine("Id: " + Id + " Nome: " + nome + " Email: " + EMAIL + " Cadastro: " + cadastro);
-            Console.WriteLine("Id: " + Id + " Nome: " + nome + " Email: " + EMAIL + " Cadastro: " + cadastro);
-        }
     }
 
     class Transacoes
@@ -61,17 +42,6 @@ namespace LegacySystem
             d = DateTime.Now;
             descricao = desc;
         }
-
-        public void ExibirTransacao()
-        {
-            Console.WriteLine("Id: " + id + " Valor: " + v + " Descricao: " + descricao + " Data: " + d);
-        }
-
-        public void ExibirTransacaoDuplicada()
-        {
-            Console.WriteLine("Id: " + id + " Valor: " + v + " Descricao: " + descricao + " Data: " + d);
-            Console.WriteLine("Id: " + id + " Valor: " + v + " Descricao: " + descricao + " Data: " + d);
-        }
     }
 
     class SistemaTransacoes
@@ -86,21 +56,6 @@ namespace LegacySystem
 
         public void ExibirTransacoes()
         {
-            foreach (var transacao in listaDeTransacoes)
-            {
-                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
-                                  transacao.descricao);
-            }
-        }
-
-        public void ExibirTransacoesOut()
-        {
-            foreach (var transacao in listaDeTransacoes)
-            {
-                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
-                                  transacao.descricao);
-            }
-
             foreach (var transacao in listaDeTransacoes)
             {
                 Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
@@ -129,19 +84,6 @@ namespace LegacySystem
 
         public void ExibirTodosOsClientes()
         {
-            foreach (cliente c in clientes)
-            {
-                Console.WriteLine("ID: " + c.Id + " Nome: " + c.nome + " Email: " + c.EMAIL);
-            }
-        }
-
-        public void ExibirTodosOsClientesOut()
-        {
-            foreach (cliente c in clientes)
-            {
-                Console.WriteLine("ID: " + c.Id + " Nome: " + c.nome + " Email: " + c.EMAIL);
-            }
-
             foreach (cliente c in clientes)
             {
                 Console.WriteLine("ID: " + c.Id + " Nome: " + c.nome + " Email: " + c.EMAIL);
