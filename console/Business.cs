@@ -6,13 +6,13 @@ namespace LegacySystem
 {
     #region Client Related Classes
 
-    class cliente
+    class Client
     {
         public int Id;
         public string nome;
         public string EMAIL;
 
-        public cliente(int i, string n, string e)
+        public Client(int i, string n, string e)
         {
             Id = i;
             nome = n;
@@ -28,13 +28,13 @@ namespace LegacySystem
         }
     }
 
-    class SistemaCliente
+    class ClientSystem
     {
-        public List<cliente> clientes = new List<cliente>();
+        public List<Client> clientes = new List<Client>();
 
         public void ExibirTodosOsClientes()
         {
-            foreach (cliente c in clientes)
+            foreach (Client c in clientes)
             {
                 Console.WriteLine("ID: " + c.Id + " Nome: " + c.nome + " Email: " + c.EMAIL);
             }
@@ -42,12 +42,12 @@ namespace LegacySystem
 
         public void AddCliente(int id, string nome, string email)
         {
-            clientes.Add(new cliente(id, nome, email));
+            clientes.Add(new Client(id, nome, email));
         }
 
         public void AtualizarNomeCliente(int id, string nome)
         {
-            cliente c = clientes.Find(x => x.Id == id);
+            Client c = clientes.Find(x => x.Id == id);
             if (c != null)
             {
                 c.mudarNome(nome);
@@ -56,7 +56,7 @@ namespace LegacySystem
 
         public void removerCliente(int id)
         {
-            cliente c = clientes.Find(x => x.Id == id);
+            Client c = clientes.Find(x => x.Id == id);
             if (c != null)
             {
                 clientes.Remove(c);
@@ -68,13 +68,13 @@ namespace LegacySystem
 
     #region Transaction Related Classes
 
-    class Transacoes
+    class Transaction
     {
         public int id;
         public decimal v;
         public string descricao;
 
-        public Transacoes(int i, decimal val, string desc)
+        public Transaction(int i, decimal val, string desc)
         {
             id = i;
             v = val;
@@ -82,13 +82,13 @@ namespace LegacySystem
         }
     }
 
-    class SistemaTransacoes
+    class TransactionSystem
     {
-        public List<Transacoes> listaDeTransacoes = new List<Transacoes>();
+        public List<Transaction> listaDeTransacoes = new List<Transaction>();
 
         public void AdicionarTransacao(int id, decimal valor, string descricao)
         {
-            Transacoes t = new Transacoes(id, valor, descricao);
+            Transaction t = new Transaction(id, valor, descricao);
             listaDeTransacoes.Add(t);
         }
 
@@ -106,9 +106,9 @@ namespace LegacySystem
 
     #region Report Related Classes
 
-    class Relatorio
+    class Report
     {
-        public void GerarRelatorioCliente(List<cliente> clientes)
+        public void GerarRelatorioCliente(List<Client> clientes)
         {
             foreach (var c in clientes)
             {

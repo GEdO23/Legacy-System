@@ -8,30 +8,30 @@ namespace LegacySystem
     {
         static void Main(string[] args)
         {
-            SistemaCliente sc = new SistemaCliente();
-            sc.AddCliente(1, "Joao", "joao@email.com");
-            sc.AddCliente(2, "Maria", "maria@email.com");
+            ClientSystem clientSystem = new ClientSystem();
+            clientSystem.AddCliente(1, "Joao", "joao@email.com");
+            clientSystem.AddCliente(2, "Maria", "maria@email.com");
 
-            SistemaTransacoes st = new SistemaTransacoes();
-            st.AdicionarTransacao(1, 100.50m, "Compra de Produto");
-            st.AdicionarTransacao(2, 200.00m, "Compra de Serviço");
-            st.AdicionarTransacao(3, 300.75m, "Compra de Software");
+            TransactionSystem transactionSystem = new TransactionSystem();
+            transactionSystem.AdicionarTransacao(1, 100.50m, "Compra de Produto");
+            transactionSystem.AdicionarTransacao(2, 200.00m, "Compra de Serviço");
+            transactionSystem.AdicionarTransacao(3, 300.75m, "Compra de Software");
 
-            sc.ExibirTodosOsClientes();
-            st.ExibirTransacoes();
+            clientSystem.ExibirTodosOsClientes();
+            transactionSystem.ExibirTransacoes();
 
-            sc.removerCliente(1);
-            sc.ExibirTodosOsClientes();
+            clientSystem.removerCliente(1);
+            clientSystem.ExibirTodosOsClientes();
 
-            sc.AtualizarNomeCliente(2, "Maria Silva");
+            clientSystem.AtualizarNomeCliente(2, "Maria Silva");
 
             string nomeEmpresa = "Empresa Teste";
             string descricaoTransacao = "Compra de Insumo";
 
             Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
             
-            Relatorio relatorio = new Relatorio();
-            relatorio.GerarRelatorioCliente(sc.clientes);
+            Report report = new Report();
+            report.GerarRelatorioCliente(clientSystem.clientes);
 
             int soma = 0;
             for (int i = 0; i < 10; i++)
