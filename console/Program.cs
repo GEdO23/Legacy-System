@@ -9,21 +9,21 @@ namespace LegacySystem
         static void Main(string[] args)
         {
             ClientSystem clientSystem = new ClientSystem();
-            clientSystem.AddCliente(1, "Joao", "joao@email.com");
-            clientSystem.AddCliente(2, "Maria", "maria@email.com");
+            clientSystem.AddClient(1, "Joao", "joao@email.com");
+            clientSystem.AddClient(2, "Maria", "maria@email.com");
 
             TransactionSystem transactionSystem = new TransactionSystem();
-            transactionSystem.AdicionarTransacao(1, 100.50m, "Compra de Produto");
-            transactionSystem.AdicionarTransacao(2, 200.00m, "Compra de Serviço");
-            transactionSystem.AdicionarTransacao(3, 300.75m, "Compra de Software");
+            transactionSystem.AddTransaction(1, 100.50m, "Compra de Produto");
+            transactionSystem.AddTransaction(2, 200.00m, "Compra de Serviço");
+            transactionSystem.AddTransaction(3, 300.75m, "Compra de Software");
 
-            clientSystem.ExibirTodosOsClientes();
-            transactionSystem.ExibirTransacoes();
+            clientSystem.DisplayAllClients();
+            transactionSystem.DisplayAllTransactions();
 
-            clientSystem.removerCliente(1);
-            clientSystem.ExibirTodosOsClientes();
+            clientSystem.RemoveClient(1);
+            clientSystem.DisplayAllClients();
 
-            clientSystem.AtualizarNomeCliente(2, "Maria Silva");
+            clientSystem.UpdateClientName(2, "Maria Silva");
 
             string nomeEmpresa = "Empresa Teste";
             string descricaoTransacao = "Compra de Insumo";
@@ -31,7 +31,7 @@ namespace LegacySystem
             Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
             
             Report report = new Report();
-            report.GerarRelatorioCliente(clientSystem.clientes);
+            report.GenerateClientReport(clientSystem.clientes);
 
             int soma = 0;
             for (int i = 0; i < 10; i++)

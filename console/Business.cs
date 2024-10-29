@@ -19,7 +19,7 @@ namespace LegacySystem
             EMAIL = e;
         }
 
-        public void mudarNome(string n)
+        public void SetName(string n)
         {
             if (n != null && n.Length > 0)
             {
@@ -32,7 +32,7 @@ namespace LegacySystem
     {
         public List<Client> clientes = new List<Client>();
 
-        public void ExibirTodosOsClientes()
+        public void DisplayAllClients()
         {
             foreach (Client c in clientes)
             {
@@ -40,21 +40,21 @@ namespace LegacySystem
             }
         }
 
-        public void AddCliente(int id, string nome, string email)
+        public void AddClient(int id, string nome, string email)
         {
             clientes.Add(new Client(id, nome, email));
         }
 
-        public void AtualizarNomeCliente(int id, string nome)
+        public void UpdateClientName(int id, string nome)
         {
             Client c = clientes.Find(x => x.Id == id);
             if (c != null)
             {
-                c.mudarNome(nome);
+                c.SetName(nome);
             }
         }
 
-        public void removerCliente(int id)
+        public void RemoveClient(int id)
         {
             Client c = clientes.Find(x => x.Id == id);
             if (c != null)
@@ -86,19 +86,19 @@ namespace LegacySystem
     {
         public List<Transaction> listaDeTransacoes = new List<Transaction>();
 
-        public void AdicionarTransacao(int id, decimal valor, string descricao)
-        {
-            Transaction t = new Transaction(id, valor, descricao);
-            listaDeTransacoes.Add(t);
-        }
-
-        public void ExibirTransacoes()
+        public void DisplayAllTransactions()
         {
             foreach (var transacao in listaDeTransacoes)
             {
                 Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
                                   transacao.descricao);
             }
+        }
+
+        public void AddTransaction(int id, decimal valor, string descricao)
+        {
+            Transaction t = new Transaction(id, valor, descricao);
+            listaDeTransacoes.Add(t);
         }
     }
 
@@ -108,7 +108,7 @@ namespace LegacySystem
 
     class Report
     {
-        public void GerarRelatorioCliente(List<Client> clientes)
+        public void GenerateClientReport(List<Client> clientes)
         {
             foreach (var c in clientes)
             {
