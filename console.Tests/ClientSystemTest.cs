@@ -139,4 +139,30 @@ public class ClientSystemTest
         // Assert
         Assert.Empty(clientSystem.ClientList);
     }
+
+    [Fact]
+    public void ExecuteIfClientExists_ShouldExecuteSomethingIfClientExists()
+    {
+        // Arrange
+        var executed = false;
+        var clientSystem = new ClientSystem();
+        const int clientIdTest = 1;
+        const string clientNameTest = "Ana Paula";
+        const string clientEmailTest = "ana123@hotmail.com";
+
+        clientSystem.AddClient(
+            clientIdTest,
+            clientNameTest,
+            clientEmailTest
+        );
+        
+        // Act
+        clientSystem.ExecuteIfClientExists(clientIdTest, client =>
+        {
+            executed = true;
+        });
+        
+        // Assert
+        Assert.True(executed);
+    }
 }

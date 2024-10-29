@@ -5,7 +5,7 @@
 public class Client
 {
     public int Id { get; }
-    public string Name { get; private set; }
+    public string Name { get; }
     public string Email { get; }
 
     public Client(int id, string name, string email)
@@ -15,14 +15,13 @@ public class Client
         Email = email;
     }
 
-    public void SetName(string name)
+    public Client SetName(string newName)
     {
         const int minimumNumberOfCharacters = 0;
 
-        if (name.Length > minimumNumberOfCharacters)
-        {
-            Name = name;
-        }
+        return newName.Length > minimumNumberOfCharacters
+            ? new Client(Id, newName, Email)
+            : new Client(Id, Name, Email);
     }
 }
 
@@ -54,24 +53,34 @@ public class ClientSystem
 
     public void AddClient(int id, string name, string email)
     {
-        ClientList.Add(new Client(id, name, email));
+        var newClient = new Client(id, name, email);
+        ClientList.Add(newClient);
     }
 
     public void UpdateClientName(int id, string newName)
     {
-        var foundClient = ClientList.Find(c => c.Id == id);
-        if (foundClient != null)
+        ExecuteIfClientExists(id, foundClient =>
         {
-            foundClient.SetName(newName);
-        }
+            var foundClientIndex = ClientList.IndexOf(foundClient);
+            var updatedClient = foundClient.SetName(newName);
+            ClientList[foundClientIndex] = updatedClient;
+        });
     }
 
     public void RemoveClient(int id)
     {
+        ExecuteIfClientExists(id, foundClient =>
+        {
+            ClientList.Remove(foundClient);
+        });
+    }
+
+    public void ExecuteIfClientExists(int id, Action<Client> action)
+    {
         var foundClient = ClientList.Find(c => c.Id == id);
         if (foundClient != null)
         {
-            ClientList.Remove(foundClient);
+            action(foundClient);
         }
     }
 }
@@ -122,7 +131,7 @@ public class TransactionSystem
 
     public void AddTransaction(int id, decimal price, string description)
     {
-        Transaction transaction = new(id, price, description);
+        var transaction = new Transaction(id, price, description);
         TransactionsList.Add(transaction);
     }
 }
