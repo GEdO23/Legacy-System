@@ -55,7 +55,6 @@ namespace LegacySystem
             int soma = 0;
             for (int i = 0; i < 10; i++)
             {
-                //Soma mais 1
                 soma += i;
             }
 
@@ -64,7 +63,6 @@ namespace LegacySystem
             int somaDuplicada = 0;
             for (int i = 0; i < 10; i++)
             {
-                //Soma Duplicada
                 somaDuplicada += i;
             }
         }

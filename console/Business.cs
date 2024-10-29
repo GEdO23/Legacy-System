@@ -4,7 +4,6 @@ using System.IO;
 
 namespace LegacySystem
 {
-    //Classe Cliente
     class cliente
     {
         public int Id;
@@ -48,7 +47,6 @@ namespace LegacySystem
         }
     }
 
-    // Classe Transações
     class Transacoes
     {
         public int id;
@@ -76,7 +74,6 @@ namespace LegacySystem
         }
     }
 
-    //Classe Sistema Transações
     class SistemaTransacoes
     {
         public List<Transacoes> listaDeTransacoes = new List<Transacoes>();
@@ -91,7 +88,8 @@ namespace LegacySystem
         {
             foreach (var transacao in listaDeTransacoes)
             {
-                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " + transacao.descricao);
+                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
+                                  transacao.descricao);
             }
         }
 
@@ -99,17 +97,18 @@ namespace LegacySystem
         {
             foreach (var transacao in listaDeTransacoes)
             {
-                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " + transacao.descricao);
+                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
+                                  transacao.descricao);
             }
 
             foreach (var transacao in listaDeTransacoes)
             {
-                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " + transacao.descricao);
+                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
+                                  transacao.descricao);
             }
         }
     }
 
-    //Classe Sistema Cliente
     class SistemaCliente
     {
         public List<cliente> clientes = new List<cliente>();
@@ -159,7 +158,6 @@ namespace LegacySystem
         }
     }
 
-    //Classe Relatório
     class Relatorio
     {
         public void GerarRelatorioCliente(List<cliente> clientes)
