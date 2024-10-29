@@ -31,7 +31,7 @@ namespace LegacySystem
             Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
             
             Report report = new Report();
-            report.GenerateClientReport(clientSystem.clientes);
+            report.GenerateClientReport(clientSystem.ClientList);
 
             int soma = 0;
             for (int i = 0; i < 10; i++)

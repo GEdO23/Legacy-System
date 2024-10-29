@@ -9,57 +9,57 @@ namespace LegacySystem
     class Client
     {
         public int Id;
-        public string nome;
-        public string EMAIL;
+        public string Name;
+        public string Email;
 
-        public Client(int i, string n, string e)
+        public Client(int id, string name, string email)
         {
-            Id = i;
-            nome = n;
-            EMAIL = e;
+            Id = id;
+            Name = name;
+            Email = email;
         }
 
-        public void SetName(string n)
+        public void SetName(string name)
         {
-            if (n != null && n.Length > 0)
+            if (name.Length > 0)
             {
-                nome = n;
+                Name = name;
             }
         }
     }
 
     class ClientSystem
     {
-        public List<Client> clientes = new List<Client>();
+        public List<Client> ClientList = new();
 
         public void DisplayAllClients()
         {
-            foreach (Client c in clientes)
+            foreach (Client client in ClientList)
             {
-                Console.WriteLine("ID: " + c.Id + " Nome: " + c.nome + " Email: " + c.EMAIL);
+                Console.WriteLine("ID: " + client.Id + " Name: " + client.Name + " Email: " + client.Email);
             }
         }
 
-        public void AddClient(int id, string nome, string email)
+        public void AddClient(int id, string name, string email)
         {
-            clientes.Add(new Client(id, nome, email));
+            ClientList.Add(new Client(id, name, email));
         }
 
         public void UpdateClientName(int id, string nome)
         {
-            Client c = clientes.Find(x => x.Id == id);
-            if (c != null)
+            Client client = ClientList.Find(c => c.Id == id);
+            if (client != null)
             {
-                c.SetName(nome);
+                client.SetName(nome);
             }
         }
 
         public void RemoveClient(int id)
         {
-            Client c = clientes.Find(x => x.Id == id);
-            if (c != null)
+            Client client = ClientList.Find(c => c.Id == id);
+            if (client != null)
             {
-                clientes.Remove(c);
+                ClientList.Remove(client);
             }
         }
     }
@@ -70,35 +70,35 @@ namespace LegacySystem
 
     class Transaction
     {
-        public int id;
-        public decimal v;
-        public string descricao;
+        public int Id;
+        public decimal Price;
+        public string Description;
 
-        public Transaction(int i, decimal val, string desc)
+        public Transaction(int id, decimal price, string description)
         {
-            id = i;
-            v = val;
-            descricao = desc;
+            Id = id;
+            Price = price;
+            Description = description;
         }
     }
 
     class TransactionSystem
     {
-        public List<Transaction> listaDeTransacoes = new List<Transaction>();
+        public List<Transaction> TransactionsList = [];
 
         public void DisplayAllTransactions()
         {
-            foreach (var transacao in listaDeTransacoes)
+            foreach (var transaction in TransactionsList)
             {
-                Console.WriteLine("Id: " + transacao.id + " Valor: " + transacao.v + " Descrição: " +
-                                  transacao.descricao);
+                Console.WriteLine("Id: " + transaction.Id + " Price: " + transaction.Price + " Description: " +
+                                  transaction.Description);
             }
         }
 
-        public void AddTransaction(int id, decimal valor, string descricao)
+        public void AddTransaction(int id, decimal price, string description)
         {
-            Transaction t = new Transaction(id, valor, descricao);
-            listaDeTransacoes.Add(t);
+            Transaction transaction = new(id, price, description);
+            TransactionsList.Add(transaction);
         }
     }
 
@@ -110,9 +110,9 @@ namespace LegacySystem
     {
         public void GenerateClientReport(List<Client> clientes)
         {
-            foreach (var c in clientes)
+            foreach (var client in clientes)
             {
-                Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
+                Console.WriteLine("Client: " + client.Name + " | Email: " + client.Email);
             }
         }
     }
