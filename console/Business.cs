@@ -17,7 +17,9 @@ class Client
 
     public void SetName(string name)
     {
-        if (name.Length > 0)
+        const int minimumNumberOfCharacters = 0;
+
+        if (name.Length > minimumNumberOfCharacters)
         {
             Name = name;
         }
@@ -26,13 +28,27 @@ class Client
 
 class ClientSystem
 {
-    public List<Client> ClientList = new();
+    public List<Client> ClientList = [];
 
     public void DisplayAllClients()
     {
-        foreach (Client client in ClientList)
+        const string dividerCharacter = " | ";
+        const string clientIdLabel = "ID: ";
+        const string clientNameLabel = "Name: ";
+        const string clientEmailLabel = "Email: ";
+
+        foreach (var client in ClientList)
         {
-            Console.WriteLine("ID: " + client.Id + " Name: " + client.Name + " Email: " + client.Email);
+            Console.WriteLine(
+                clientIdLabel
+                + client.Id
+                + dividerCharacter
+                + clientNameLabel
+                + client.Name
+                + dividerCharacter
+                + clientEmailLabel
+                + client.Email
+            );
         }
     }
 
@@ -84,10 +100,23 @@ class TransactionSystem
 
     public void DisplayAllTransactions()
     {
+        const string dividerCharacter = " | ";
+        const string transactionIdLabel = "Id: ";
+        const string transactionPriceLabel = "Price: ";
+        const string transactionDescriptionLabel = "Description: ";
+
         foreach (var transaction in TransactionsList)
         {
-            Console.WriteLine("Id: " + transaction.Id + " Price: " + transaction.Price + " Description: " +
-                              transaction.Description);
+            Console.WriteLine(
+                transactionIdLabel
+                + transaction.Id
+                + dividerCharacter
+                + transactionPriceLabel
+                + transaction.Price
+                + dividerCharacter
+                + transactionDescriptionLabel
+                + transaction.Description
+            );
         }
     }
 
@@ -106,9 +135,19 @@ class Report
 {
     public void GenerateClientReport(List<Client> clientList)
     {
+        const string dividerCharacter = " | ";
+        const string clientNameLabel = "Client: ";
+        const string clientEmailLabel = "Email: ";
+
         foreach (var client in clientList)
         {
-            Console.WriteLine("Client: " + client.Name + " | Email: " + client.Email);
+            Console.WriteLine(
+                clientNameLabel
+                + client.Name
+                + dividerCharacter
+                + clientEmailLabel
+                + client.Email
+            );
         }
     }
 }
