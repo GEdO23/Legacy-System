@@ -96,7 +96,7 @@ public class Transaction
 
 public class TransactionSystem
 {
-    private readonly List<Transaction> TransactionsList = [];
+    public readonly List<Transaction> TransactionsList = [];
 
     public void DisplayAllTransactions()
     {
