@@ -105,18 +105,5 @@ namespace LegacySystem
                 Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
             }
         }
-
-        public void GerarRelatorioClienteDuplicado(List<cliente> clientes)
-        {
-            foreach (var c in clientes)
-            {
-                Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
-            }
-
-            foreach (var c in clientes)
-            {
-                Console.WriteLine("Cliente: " + c.nome + " | Email: " + c.EMAIL);
-            }
-        }
     }
 }

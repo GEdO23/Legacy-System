@@ -32,7 +32,6 @@ namespace LegacySystem
             
             Relatorio relatorio = new Relatorio();
             relatorio.GerarRelatorioCliente(sc.clientes);
-            relatorio.GerarRelatorioClienteDuplicado(sc.clientes);
 
             int soma = 0;
             for (int i = 0; i < 10; i++)
