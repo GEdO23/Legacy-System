@@ -2,11 +2,11 @@
 
 #region Client Related Classes
 
-class Client
+public class Client
 {
-    public int Id;
-    public string Name;
-    public string Email;
+    public int Id { get; }
+    public string Name { get; private set; }
+    public string Email { get; }
 
     public Client(int id, string name, string email)
     {
@@ -26,9 +26,9 @@ class Client
     }
 }
 
-class ClientSystem
+public class ClientSystem
 {
-    public List<Client> ClientList = [];
+    public readonly List<Client> ClientList = [];
 
     public void DisplayAllClients()
     {
@@ -59,7 +59,7 @@ class ClientSystem
 
     public void UpdateClientName(int id, string newName)
     {
-        Client foundClient = ClientList.Find(c => c.Id == id);
+        var foundClient = ClientList.Find(c => c.Id == id);
         if (foundClient != null)
         {
             foundClient.SetName(newName);
@@ -68,7 +68,7 @@ class ClientSystem
 
     public void RemoveClient(int id)
     {
-        Client foundClient = ClientList.Find(c => c.Id == id);
+        var foundClient = ClientList.Find(c => c.Id == id);
         if (foundClient != null)
         {
             ClientList.Remove(foundClient);
@@ -80,11 +80,11 @@ class ClientSystem
 
 #region Transaction Related Classes
 
-class Transaction
+public class Transaction
 {
-    public int Id;
-    public decimal Price;
-    public string Description;
+    public int Id { get; }
+    public decimal Price { get; }
+    public string Description { get; }
 
     public Transaction(int id, decimal price, string description)
     {
@@ -94,9 +94,9 @@ class Transaction
     }
 }
 
-class TransactionSystem
+public class TransactionSystem
 {
-    public List<Transaction> TransactionsList = [];
+    private readonly List<Transaction> TransactionsList = [];
 
     public void DisplayAllTransactions()
     {
@@ -131,7 +131,7 @@ class TransactionSystem
 
 #region Report Related Classes
 
-class Report
+public class Report
 {
     public void GenerateClientReport(List<Client> clientList)
     {
