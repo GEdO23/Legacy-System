@@ -9,14 +9,12 @@ namespace LegacySystem
         public int Id;
         public string nome;
         public string EMAIL;
-        public DateTime cadastro;
 
         public cliente(int i, string n, string e)
         {
             Id = i;
             nome = n;
             EMAIL = e;
-            cadastro = DateTime.Now;
         }
 
         public void mudarNome(string n)
@@ -32,14 +30,12 @@ namespace LegacySystem
     {
         public int id;
         public decimal v;
-        public DateTime d;
         public string descricao;
 
         public Transacoes(int i, decimal val, string desc)
         {
             id = i;
             v = val;
-            d = DateTime.Now;
             descricao = desc;
         }
     }
