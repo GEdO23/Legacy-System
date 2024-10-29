@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-using console;
+﻿using console;
 
 ClientSystem clientSystem = new();
 clientSystem.AddClient(1, "Joao", "joao@email.com");
