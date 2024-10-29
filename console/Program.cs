@@ -28,26 +28,8 @@ namespace LegacySystem
             string nomeEmpresa = "Empresa Teste";
             string descricaoTransacao = "Compra de Insumo";
 
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
-            }
-
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
-            }
-
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
-            }
-
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
-            }
-
+            Console.WriteLine("Nome da Empresa: " + nomeEmpresa + " Descrição: " + descricaoTransacao);
+            
             Relatorio relatorio = new Relatorio();
             relatorio.GerarRelatorioCliente(sc.clientes);
             relatorio.GerarRelatorioClienteDuplicado(sc.clientes);
@@ -59,12 +41,6 @@ namespace LegacySystem
             }
 
             Console.WriteLine("Soma total: " + soma);
-
-            int somaDuplicada = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                somaDuplicada += i;
-            }
         }
     }
 }
